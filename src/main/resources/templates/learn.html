@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>首页</title>
+    <link rel="stylesheet" href="../static/bootstrap4.0.0/css/bootstrap.min.css" th:href="@{/bootstrap4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/bootstrap4.0.0/css/font-awesome.min.css" th:href="@{/bootstrap4.0.0/css/font-awesome.min.css}"/>
+</head>
+<body>
+<div style="text-align: right;margin:20px auto;width: 1000px;">
+    <button id="logout" class="btn-danger">退出</button>
+</div>
+<div style="text-align: center;margin:0 auto;width: 1000px; ">
+    <h1>学习springboot</h1>
+    <table class="table table-bordered">
+        <tr>
+            <td>作者</td>
+            <td>教程名称</td>
+            <td>地址</td>
+        </tr>
+        <tr th:each="learn : ${learnList}">
+            <td th:text="${learn.author}">Alan</td>
+            <td th:text="${learn.title}">SpringBoot干货系列</td>
+            <td><a th:href="${learn.url}" target="_blank">点我</a></td>
+        </tr>
+    </table>
+</div>
+
+<script src="../static/jquery1.8.3/jquery.min.js" th:src="@{/jquery1.8.3/jquery.min.js}"></script>
+<script>
+    $(function() {
+        //退出操作
+        $("#logout").click(function (e) {
+            window.location.href ="/Login";
+        });
+    })
+</script>
+
+</body>
+</html>
